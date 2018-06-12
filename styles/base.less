@@ -1,0 +1,184 @@
+@import "syntax-variables";
+
+// Theme Styles
+
+.focus--comment {
+  color: @green
+}
+
+.focus--control {
+  color: @very-light-gray;
+  font-weight: bold;
+}
+
+.focus--operator {
+  color: mix(@light-gray, @very-light-gray);
+}
+
+.focus--keyword {
+  font-style: italic;
+}
+
+.focus--constant {
+  color: @orange;
+}
+
+// Style Selection
+
+.syntax--tag.syntax--entity {
+  .focus--control;
+}
+
+.syntax--comment {
+  .focus--comment;
+}
+
+.syntax--keyword {
+  &.syntax--operator {
+    .focus--operator;
+  }
+
+  &.syntax--typeof {
+    .focus--keyword;
+    color: @syntax-text-color;
+  }
+
+  &.syntax--control {
+    .focus--control;
+  }
+}
+.syntax--delimiter,
+.syntax--brace,
+.syntax--punctuation.syntax--embedded {
+  .focus--operator;
+}
+
+.syntax--storage {
+  .focus--control;
+}
+
+.syntax--constant {
+  &.syntax--numeric {
+    .focus--constant;
+  }
+
+  &.syntax--language {
+    .focus--keyword;
+  }
+}
+
+.syntax--invalid.syntax--illegal {
+  background-color: @orange;
+  color: @syntax-background-color;
+}
+
+.syntax--string {
+  .focus--constant;
+
+  .syntax--source.syntax--embedded {
+    color: @syntax-text-color;
+  }
+}
+
+/*.syntax--markup {
+  &.syntax--bold {
+    color: @orange;
+    font-weight: bold;
+  }
+
+  &.syntax--changed {
+    color: @purple;
+  }
+
+  &.syntax--deleted {
+    color: @red;
+  }
+
+  &.syntax--italic {
+    color: @purple;
+    font-style: italic;
+  }
+
+  &.syntax--heading .syntax--punctuation.syntax--definition.syntax--heading {
+    color: @blue;
+  }
+
+  &.syntax--inserted {
+    color: @green;
+  }
+
+  &.syntax--list {
+    color: @red;
+  }
+
+  &.syntax--quote {
+    color: @orange;
+  }
+
+  &.syntax--raw.syntax--inline {
+    color: @green;
+  }
+}*/
+
+.syntax--source.syntax--gfm .syntax--markup {
+  -webkit-font-smoothing: auto;
+}
+
+// Editor
+
+atom-text-editor {
+  background-color: @syntax-background-color;
+  color: @syntax-text-color;
+
+  .wrap-guide {
+    background-color: @syntax-wrap-guide-color;
+  }
+
+  .indent-guide {
+    color: @syntax-indent-guide-color;
+  }
+
+  .invisible-character {
+    color: @syntax-invisible-character-color;
+  }
+
+  .gutter {
+    background-color: @syntax-gutter-background-color;
+    color: @syntax-gutter-text-color;
+
+    .line-number {
+      &.cursor-line {
+        background-color: @syntax-gutter-background-color-selected;
+        color: @syntax-gutter-text-color-selected;
+      }
+
+      &.cursor-line-no-selection {
+        color: @syntax-gutter-text-color-selected;
+      }
+    }
+  }
+
+  .gutter .line-number.folded,
+  .gutter .line-number:after,
+  .fold-marker:after {
+    color: @light-gray;
+  }
+
+  .invisible {
+    color: @syntax-text-color;
+  }
+
+  .cursor {
+    color: @syntax-cursor-color;
+  }
+
+  .selection .region {
+    background-color: @syntax-selection-color;
+  }
+}
+
+// Mini editor
+
+atom-text-editor[mini] .scroll-view {
+  padding-left: 1px;
+}

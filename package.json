@@ -1,0 +1,15 @@
+{
+  "name": "marathon-syntax",
+  "theme": "syntax",
+  "version": "0.0.0",
+  "description": "marathon-syntax",
+  "keywords": [
+    "syntax",
+    "theme"
+  ],
+  "repository": "https://github.com/tristanhoy/marathon-syntax",
+  "license": "MIT",
+  "engines": {
+    "atom": ">=1.0.0 <2.0.0"
+  }
+}
